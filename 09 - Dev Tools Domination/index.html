@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Console Tricks!</title>
+</head>
+<body>
+
+  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+  <script>
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+
+    // Regular
+    console.log('Hello, World!');
+
+    // Interpolated
+    console.log('I am %s and Im %d years old.', 'Naveen', 20);
+
+    // Styled
+    console.log('%c Stay Away From The Console!', 'background-color: yellow; color: red; font-size: 2rem; padding-right: .75rem');
+
+    // warning!
+    console.warn('BADA55');
+
+    // Error :|
+    console.error('Not an error');
+
+    // Info
+    console.info('Not a useful info');
+
+    // Testing
+    console.assert('abc' === 'abc', 'Not Same');
+
+    // clearing
+    console.clear();
+
+    // Viewing DOM Elements
+    console.dir(document);
+
+    // Grouping together
+    dogs.forEach((dog) => {
+      console.groupCollapsed(dog.name);
+      console.log('This is %s.', dog.name);
+      console.log('He is %d years old.', dog.age);
+      console.groupEnd(dog.name);
+    });
+
+    // counting
+    console.count('FCB');
+    console.count('FCB');
+    console.count('FCBB');
+    console.count('FCB');
+    console.count('FCBB');
+    console.count('FCB');
+    console.count('FCB');
+
+    // timing
+    console.time('Fetch')
+    fetch('https://api.github.com/users/wesbos').then(() => console.timeEnd('Fetch'));
+
+    // table
+    console.table(dogs);
+
+  </script>
+</body>
+</html>
